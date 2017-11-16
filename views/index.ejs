@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="container">
+    <header class="row">
+      <div class="column column-50">
+        <i class="fa fa-bars purple"></i>
+        <span><%= title %></span>
+      </div>
+      <div class="column column-50 clearfix">
+        <div class="float-right">
+          <i class="fa fa-user purple"></i>
+          <span>John</span>
+          <span>|</span>
+          <a href="https://gitlab.com/n370/payrollpanda-assessment/tree/master">Log out</a>
+        </div>
+      </div>
+    </header>
+    <div class="breadcrumb">
+      <span class="purple"><i class="fa fa-home"></i></span>
+      <span>></span>
+      <span class="purple">Page 1</span>
+      <span>></span>
+      <span class="purple">Breadcrumb</span>
+      <span>></span>
+      <span>Current page</span>
+    </div>
+    <div class="categories clearfix">
+      <% categories.forEach(function(category){ %>
+        <%- include('partials/category', {category: category}); %>
+      <% }); %>
+      <div class="category responsible float-right">
+        <div class="float-left">
+          <i class="fa fa-recycle green category-icon"></i>
+        </div>
+        <div class="float-right">
+          <div>Responsability</div>
+          <div class="green"><strong>Be Green!</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="help">
+      <div class="accordion" data-accordion>
+        <div class="accordion-header clearfix" data-accordion-header>
+          <div class="float-left"><strong>Help</strong></div>
+          <div class="float-right"><small data-accordion-status></small></div>
+        </div>
+        <div class="accordion-body" data-accordion-body>
+          <i class="fa fa-5x fa-pull-left fa-life-ring"></i>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam velit recusandae totam voluptatum optio nulla ratione quaerat iure consequuntur expedita minima vitae assumenda ducimus iusto corporis nesciunt, doloribus consectetur qui.</p>
+          <p>Eligendi quaerat est exercitationem corrupti. Cumque, architecto iure eum, hic dolore consequuntur fugiat voluptatum doloribus accusantium, omnis quidem nulla! Illo, quidem expedita cumque esse ex ullam dolorum quam? Tempore, autem!</p>
+          <p>Quod deserunt sed libero recusandae dolorem! Corporis aut mollitia et eius sed vero ea dicta labore, maiores ullam unde nisi odit distinctio commodi similique impedit praesentium placeat qui error nostrum.</p>
+        </div>
+      </div>
+    </div>
+    <div class="user-registration">
+      <h1>User registration</h1>
+      <form data-user-registration-form>
+        <div class="row">
+          <div class="relative column column-40">
+            <label for="fullname">Full name</label>
+            <input type="text" id="fullname">
+            <small class="filling-tip" data-hidden-filling-tip>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</small>
+          </div>
+          <div class="ridemode column column-offset-10 column-50">
+            <strong>Ride in group?</strong>
+            <label><input type="radio" name="ridemode" value="0" checked="true"> <span class="label-inline">Always</span></label>
+            <label><input type="radio" name="ridemode" value="1"> <span class="label-inline">Sometimes</span></label>
+            <label><input type="radio" name="ridemode" value="2"> <span class="label-inline">Never</span></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="relative column column-40">
+            <label for="email">E-mail</label>
+            <input type="text" id="email">
+            <small class="filling-tip" data-hidden-filling-tip>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</small>
+          </div>
+          <div class="ridemode column column-offset-10 column-50">
+            <strong>Days of the week</strong>
+            <label><input type="checkbox" name="weekdays" value="0"> <span class="label-inline">Sun</span></label>
+            <label><input type="checkbox" name="weekdays" value="1"> <span class="label-inline">Mon</span></label>
+            <label><input type="checkbox" name="weekdays" value="2"> <span class="label-inline">Tue</span></label>
+            <label><input type="checkbox" name="weekdays" value="3"> <span class="label-inline">Wed</span></label>
+            <label><input type="checkbox" name="weekdays" value="4"> <span class="label-inline">Thu</span></label>
+            <label><input type="checkbox" name="weekdays" value="5"> <span class="label-inline">Fri</span></label>
+            <label><input type="checkbox" name="weekdays" value="6"> <span class="label-inline">Sat</span></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="relative column column-40">
+            <label for="city">City</label>
+            <input type="text" id="city">
+            <small class="filling-tip" data-hidden-filling-tip>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</small>
+          </div>
+          <div class="relative ridemode column column-offset-10 column-50">
+            <div class="button-set">
+              <button type="button" class="button-silver" data-user-registration-form-cancel>cancel</button>
+              <button type="submit">save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="bikers">
+      <h1>Bikers</h1>
+      <table class='registered-user-list' data-registered-user-list>
+        <thead>
+          <tr>
+            <th>Full name</th>
+            <th>E-mail</th>
+            <th>City</th>
+            <th>Ride in group</th>
+            <th>Days of the week</th>
+            <th>Registration day</th>
+          </tr>
+        </thead>
+        <tbody data-registered-user-list-body></tbody>
+      </table>
+    </div>
+    <footer class="row">
+      <div class="column column-100 clearfix">
+        <div class="float-left"><span><%= title %></span></div>
+        <div class="float-right"><span>Version <%= version %></span></div>
+      </div>
+    </footer>
+    <script src="/javascripts/script.js"></script>
+  </body>
+</html>

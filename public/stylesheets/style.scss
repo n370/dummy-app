@@ -1,0 +1,160 @@
+@import "../node_modules/normalize.css/normalize.css";
+@import "../node_modules/milligram/dist/milligram.min.css";
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+
+.green {
+  color: green;
+}
+
+.purple {
+  color: #9b4dca;
+}
+
+.relative {
+  position: relative;
+}
+
+.breadcrumb {
+  margin: 1em 0;
+
+  span {
+    &:hover {
+      user-select: none;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.categories {
+  margin: 2em 0 0 0;
+}
+
+.category {
+  white-space: nowrap;
+  width: 150px;
+
+  &.responsible {
+    width: auto;
+  }
+}
+
+.category-icon {
+  padding-right: 10px;
+  font-size: 2.5em;
+  line-height: 1.4;
+}
+
+.button-set {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+}
+
+.button-silver {
+  background-color: silver;
+  border-color: silver;
+}
+
+.ridemode,
+.weekdays {
+  label {
+    display: inline;
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+.user-registration {
+  .row {
+    margin: 5px 0;
+  }
+
+  .filling-tip {
+    bottom: -5px;
+    left: 10px;
+    position: absolute;
+  }
+}
+
+.registered-user-list-item {
+  &:nth-child(odd) {
+    background: lightgray;
+  }
+
+  &:hover {
+    background: #9b4dca;
+    color: white;
+  }
+
+  >td {
+    padding: 1em;
+  }
+
+  .trash {
+    cursor: pointer;
+  }
+}
+
+.label-inline {
+  margin-right: 15px;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: silver;
+  }
+}
+
+header {
+  margin: 1em 0 0 0;
+}
+
+footer {
+  margin: 2em 0;
+}
+
+// JS controlled styles
+
+[data-user-registration-form] {
+  [data-hidden-filling-tip] {
+    visibility: hidden;
+  }
+}
+
+[data-accordion] {
+  margin: 2em 0;
+
+  [data-accordion-header] {
+    background: lightgray;
+    padding: 1em;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten($color: lightgray, $amount: 5);
+    }
+  }
+
+  [data-accordion-status] {
+    &:before {
+      content: 'close \2191';
+    }
+
+    &[data-accordion-item-closed] {
+      &:before {
+        content: 'open \2193';
+      }
+    }
+  }
+
+  [data-accordion-body] {
+    display: block;
+    padding: 2em 0.6em 0.6em 0.6em;
+
+    &[data-accordion-item-closed] {
+      display: none;
+    }
+  }
+}
